@@ -1,0 +1,16 @@
+.codeBlocks-container{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    padding: 30px;
+    
+}
+
+@media (max-width: 950px) {
+    .codeBlocks-container{
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage/HomePage'
 import { Login } from './pages/Login/Login'
 import { NoPage } from './pages/NoPage/NoPage'
 import { Lobby } from './pages/Lobby/Lobby'
+import { CodeBlock } from './pages/CodeBlock/CodeBlock'
 
 function App() {
  
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />}/>
           <Route index element={<HomePage />} />
           <Route path="lobby" element={<Lobby />} />
+          <Route path="codeblock/:id" element={<CodeBlock/>} />
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
       </Routes>
