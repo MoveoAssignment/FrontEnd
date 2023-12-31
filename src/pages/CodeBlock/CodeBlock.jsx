@@ -44,7 +44,8 @@ export const CodeBlock = () => {
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io("https://moveoback.onrender.com:7070");
+    const newSocket = io('https://moveoback.onrender.com', { transports: ['websocket']});
+    
     setSocket(newSocket);
     newSocket.on("count", (count) => {
       handleCount(count)
