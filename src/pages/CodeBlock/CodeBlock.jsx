@@ -25,7 +25,7 @@ export const CodeBlock = () => {
     const fetchCodeBlock = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6969/codeblocks/${id}`
+          `https://moveoback.onrender.com/codeblocks/${id}`
         );
         setCodeBlock(response.data);
       } catch (error) {
@@ -44,7 +44,7 @@ export const CodeBlock = () => {
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io("http://localhost:7070");
+    const newSocket = io("https://moveoback.onrender.com:7070");
     setSocket(newSocket);
     newSocket.on("count", (count) => {
       handleCount(count)

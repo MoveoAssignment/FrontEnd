@@ -7,7 +7,7 @@ export const Lobby = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const codes = await axios.get("http://localhost:6969/codeblocks");
+      const codes = await axios.get("https://moveoback.onrender.com/codeblocks");
       setCodeBlocks(codes.data);
     };
     fetch();
