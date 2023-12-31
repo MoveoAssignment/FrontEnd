@@ -38,25 +38,32 @@ export const CodeBlock = () => {
 
   const handleCount = (count) => {
     console.log(isMentor, count);
-    if(!isMentor && count === 1) {
+    if (!isMentor && count === 1) {
       setIsMentor(true);
     }
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io('https://moveoback.onrender.com/', { transports: ['polling'] });
-    
+    const newSocket = io("https://moveoback.onrender.com/", {
+      reconnectionDelay: 1000,
+      reconnection: true,
+      reconnectionAttemps: 10,
+      transports: ["websocket"],
+      agent: false,
+      upgrade: false,
+      rejectUnauthorized: false,
+    });
+
     setSocket(newSocket);
     newSocket.on("count", (count) => {
-      handleCount(count)
+      handleCount(count);
     });
     newSocket.on("message", (message) => {
-      setMessage(message)
+      setMessage(message);
     });
     return () => newSocket.close();
-    
   }, []);
-  
+
   useEffect(() => {
     if (isCorrect) {
       console.log("Correct answer! from codeBlock");
@@ -66,7 +73,7 @@ export const CodeBlock = () => {
   return (
     <>
       <div className={styles["container"]}>
-        {isMentor? <h1>Mentor</h1> : <h1>Student</h1>} 
+        {isMentor ? <h1>Mentor</h1> : <h1>Student</h1>}
         <h1>{codeBlock.title}</h1>
         <img
           src={codeBlock.image_url}
@@ -87,7 +94,7 @@ export const CodeBlock = () => {
                 solution={codeBlock.code}
                 readOnly={isMentor}
                 socket={socket}
-                defaultValue = {message}
+                defaultValue={message}
               />
             )}
           </Box>
