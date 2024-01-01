@@ -25,7 +25,7 @@ export const CodeBlock = () => {
     const fetchCodeBlock = async () => {
       try {
         const response = await axios.get(
-          `https://backend-production-82fd.up.railway.app/codeblocks/${id}`
+          `moveoback.up.railway.app/codeblocks/${id}`
         );
         setCodeBlock(response.data);
       } catch (error) {
@@ -44,7 +44,7 @@ export const CodeBlock = () => {
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io("wss://backend-production-82fd.up.railway.app", {
+    const newSocket = io("wss://moveoback.up.railway.app", {
       reconnectionDelay: 1000,
       reconnection: true,
       reconnectionAttemps: 10,
