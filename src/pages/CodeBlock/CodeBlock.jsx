@@ -54,15 +54,16 @@ export const CodeBlock = () => {
       rejectUnauthorized: false,
     });
 
+    
     newSocket.on("count", (count) => {
       handleCount(count);
     });
     newSocket.on("message", (msg) => {
-      if(isMentor) setMessage(msg);
+      if(message!=msg) setMessage(msg);
     });
     setSocket(newSocket);
     return () => newSocket.close();
-  }, [isMentor]);
+  }, []);
 
   return (
     <>
