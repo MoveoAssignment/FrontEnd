@@ -4,7 +4,6 @@ import { javascript } from "@codemirror/lang-javascript";
 
 export function CodeBoard({ solution, setIsCorrect, readOnly, socket, defaultValue, setMessage }) {
   const onChange = React.useCallback((value, viewUpdate) => {
-    setMessage(value);
     socket.emit("message", value)
     if (value === solution) {
       setIsCorrect(true);
