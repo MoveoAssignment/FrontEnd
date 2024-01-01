@@ -23,7 +23,8 @@ export const CodeBlock = () => {
 
 
   const messageHandler = (msg) => {
-    if(isMentor) setMessage(msg);
+    isMentor && setMessage(msg);
+    console.log("message from codeBlock", msg);
   };
 
 
@@ -44,14 +45,15 @@ export const CodeBlock = () => {
   }, []);
 
   const handleCount = (count) => {
-    console.log(isMentor, count);
-    if (!isMentor && count === 1) {
+    if (count === 1) {
       setIsMentor(true);
     }
     console.log("count from serverSocket", count);
+    console.log(isMentor, count);
   };
+
   useEffect(() => {
-    const newSocket = io("https://moveoback.up.railway.app/", {
+    const newSocket = io("https://moveoback.up.railway.app", {
       reconnectionDelay: 1000,
       reconnection: true,
       reconnectionAttemps: 10,
@@ -59,17 +61,26 @@ export const CodeBlock = () => {
       agent: false,
       upgrade: false,
       rejectUnauthorized: false,
+      
     });
 
     newSocket.on("count", (count) => {
       handleCount(count);
     });
-    newSocket.on("message", (msg) => {
-      messageHandler(msg);
-    });
+    
     setSocket(newSocket);
     return () => newSocket.close();
   }, []);
+
+  useEffect(() => {
+    console.log("isMentor", isMentor);
+    socket && socket.on("message", (msg) => {
+      console.log("message from serverSocket", msg)
+      messageHandler(msg);
+    });
+  }, [isMentor]);
+
+  
 
   return (
     <>
