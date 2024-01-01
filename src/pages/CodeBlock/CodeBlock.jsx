@@ -21,6 +21,13 @@ export const CodeBlock = () => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState("");
 
+
+  const messageHandler = (msg) => {
+    if(isMentor) setMessage(msg);
+  };
+
+
+
   useEffect(() => {
     const fetchCodeBlock = async () => {
       try {
@@ -58,7 +65,7 @@ export const CodeBlock = () => {
       handleCount(count);
     });
     newSocket.on("message", (msg) => {
-      if(isMentor) setMessage(msg);
+      messageHandler(msg);
     });
     setSocket(newSocket);
     return () => newSocket.close();
@@ -89,7 +96,7 @@ export const CodeBlock = () => {
                 readOnly={isMentor}
                 socket={socket}
                 defaultValue={message}
-                setMessage={setMessage}
+                setMessage={messageHandler}
               />
             )}
           </Box>
