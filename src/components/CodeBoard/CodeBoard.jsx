@@ -10,7 +10,10 @@ export function CodeBoard({ solution, setIsCorrect, readOnly, socket, defaultVal
       console.log("Correct answer! from codeBoard")
     }
     else {
-      setIsCorrect(false);
+      //if the value equals to solution without last char 
+      if (value === solution.slice(0, -1) || value.slice(0, -1) === solution) {
+        setIsCorrect(false);
+      }
     }
   }, [setIsCorrect, solution, socket]);
   // if(defaultValue === solution){
