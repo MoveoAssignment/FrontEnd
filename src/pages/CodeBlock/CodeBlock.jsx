@@ -58,8 +58,8 @@ export const CodeBlock = () => {
     newSocket.on("count", (count) => {
       handleCount(count);
     });
-    newSocket.on("message", (message) => {
-      setMessage(message);
+    newSocket.on("message", (msg) => {
+      if(message!=msg) setMessage(msg);
     });
     return () => newSocket.close();
   }, []);
