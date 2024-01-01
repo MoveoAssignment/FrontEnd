@@ -13,8 +13,8 @@ function App() {
     <BrowserRouter>
     <ResponsiveAppBar/>
       <Routes>
-          <Route path="/" element={<ResponsiveAppBar/>}/>
-          <Route path="/" element={<HomePage />}/>
+          {/* <Route path="/" element={<ResponsiveAppBar/>}/> */}
+          {/* <Route path="/" element={<HomePage />}/> */}
           <Route index element={<HomePage />} />
           <Route path="/lobby" element={<Lobby />} />
           <Route path="/codeblock/:id" element={<CodeBlock/>} />

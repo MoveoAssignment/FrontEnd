@@ -44,7 +44,7 @@ export const CodeBlock = () => {
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io("https://backend-production-82fd.up.railway.app", {
+    const newSocket = io("wss://backend-production-82fd.up.railway.app", {
       reconnectionDelay: 1000,
       reconnection: true,
       reconnectionAttemps: 10,
