@@ -64,11 +64,6 @@ export const CodeBlock = () => {
     return () => newSocket.close();
   }, []);
 
-  useEffect(() => {
-    if (isCorrect) {
-      console.log("Correct answer! from codeBlock");
-    }
-  }, [isCorrect]);
   console.log("rendering codeBlock");
   return (
     <>
@@ -100,7 +95,7 @@ export const CodeBlock = () => {
           </Box>
           {isCorrect && (
             <div className={styles["correct"]}>
-              <h1>Correct!</h1>
+              <h1>Correct!!!</h1>
             </div>
           )}
           <div style={{ width: "100%" }}>
