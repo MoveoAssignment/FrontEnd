@@ -62,7 +62,7 @@ export const CodeBlock = () => {
     });
     setSocket(newSocket);
     return () => newSocket.close();
-  }, []);
+  }, [isMentor]);
 
   return (
     <>
