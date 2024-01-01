@@ -25,7 +25,7 @@ export const CodeBlock = () => {
     const fetchCodeBlock = async () => {
       try {
         const response = await axios.get(
-          `moveoback.up.railway.app/codeblocks/${id}`
+          `https://moveoback.up.railway.app/codeblocks/${id}`
         );
         setCodeBlock(response.data);
       } catch (error) {

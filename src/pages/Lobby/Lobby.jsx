@@ -7,7 +7,7 @@ export const Lobby = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const codes = await axios.get("moveoback.up.railway.app/codeblocks");
+      const codes = await axios.get("https://moveoback.up.railway.app/codeblocks");
       setCodeBlocks(codes.data);
     };
     fetch();
