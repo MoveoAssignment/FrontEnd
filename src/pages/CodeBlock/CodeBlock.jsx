@@ -62,7 +62,7 @@ export const CodeBlock = () => {
       if(message!=msg) setMessage(msg);
     });
     return () => newSocket.close();
-  }, []);
+  }, [setMessage, message, handleCount]);
 
   return (
     <>
