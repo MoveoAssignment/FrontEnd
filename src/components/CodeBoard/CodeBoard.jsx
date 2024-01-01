@@ -16,12 +16,12 @@ export function CodeBoard({ solution, setIsCorrect, readOnly, socket, defaultVal
       }
     }
   }, [setIsCorrect, solution, socket]);
-  // if(defaultValue === solution){
-  //   setIsCorrect(true);
-  // }
-  // else{
-  //   setIsCorrect(false);
-  // }
+  if(defaultValue === solution){
+    setIsCorrect(true);
+  }
+  else{
+    setIsCorrect(false);
+  }
   return (
     <div>
       <CodeMirror
