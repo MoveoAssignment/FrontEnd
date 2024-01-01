@@ -2,6 +2,6 @@ import React from 'react'
 
 export const NoPage = () => {
   return (
-    <div>NoPage</div>
+    <div>NoPage 404</div>
   )
 }

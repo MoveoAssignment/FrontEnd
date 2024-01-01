@@ -16,9 +16,9 @@ function App() {
           <Route path="/" element={<ResponsiveAppBar/>}/>
           <Route path="/" element={<HomePage />}/>
           <Route index element={<HomePage />} />
-          <Route path="lobby" element={<Lobby />} />
-          <Route path="codeblock/:id" element={<CodeBlock/>} />
-          <Route path="login" element={<Login />} />
+          <Route path="/lobby" element={<Lobby />} />
+          <Route path="/codeblock/:id" element={<CodeBlock/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
