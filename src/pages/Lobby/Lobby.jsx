@@ -15,7 +15,7 @@ export const Lobby = () => {
   return (
     <>
       <div className={styles["container"]}>
-        <div className={styles['title']}><h2>Choose code block</h2></div>
+        <div className={styles['title']}><h3>Choose code block</h3></div>
         <div className={styles["codeBlocks-container"]}>
           {codeBlocks.map((codeBlock) => {
             return (

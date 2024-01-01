@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["Lobby"];
+// const pages = ["Lobby"];
 const settings = ["Logout"];
 
 function ResponsiveAppBar() {
@@ -36,7 +36,7 @@ function ResponsiveAppBar() {
   };
   const navigate = useNavigate();
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor:"#5A89AB"}}>
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <Typography
@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Inter",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
               cursor: "pointer",
             }}
           >
-            Moveo-COVID
+            Moveo E-Learning
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -87,17 +87,7 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={() => {
-                    handleCloseNavMenu;
-                    navigate(`/${page}`);
-                  }}
-                >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
 
@@ -118,11 +108,12 @@ function ResponsiveAppBar() {
               cursor: "pointer",
             }}
           >
-            Moveo-COVID19
+            Moveo E-Learning
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
+              fontFamily={"Inter"}
                 key={page}
                 onClick={() => {
                   handleCloseNavMenu;
@@ -132,7 +123,7 @@ function ResponsiveAppBar() {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

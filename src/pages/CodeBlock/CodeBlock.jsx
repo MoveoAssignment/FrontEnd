@@ -85,19 +85,19 @@ export const CodeBlock = () => {
   return (
     <>
       <div className={styles["container"]}>
-        {isMentor ? <h1>Mentor</h1> : <h1>Student</h1>}
-        <h1>{codeBlock.title}</h1>
-        <img
+        {isMentor ? <h1 className={styles['role']}>Mentor</h1> : <h1 className={styles['role']}>Student</h1>}
+        <h1 className={styles['block-title']}>{codeBlock.title}</h1>
+        <img className={styles["code-block-image"]}
           src={codeBlock.image_url}
           alt="code block"
           style={{ width: "10%", borderRadius: "20px" }}
         ></img>
         <div className={styles["code-block"]}>
           <p>
-            <h1>Description:</h1> {codeBlock.description}
+            <h2>Description:</h2> {codeBlock.description}
           </p>
           <p>
-            <h1>Your task is:</h1> {codeBlock.task}
+            <h2>Your task is:</h2> {codeBlock.task}
           </p>
           <Box sx={{ width: "100%" }}>
             {codeBlock.code && (

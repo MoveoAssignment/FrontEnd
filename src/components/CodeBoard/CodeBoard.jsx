@@ -5,23 +5,9 @@ import { javascript } from "@codemirror/lang-javascript";
 export function CodeBoard({ solution, setIsCorrect, readOnly, socket, defaultValue, setMessage }) {
   const onChange = React.useCallback((value, viewUpdate) => {
     socket.emit("message", value)
-    if (value === solution) {
-      setIsCorrect(true);
-      console.log("Correct answer! from codeBoard")
-    }
-    else {
-      //if the value equals to solution without last char 
-      if (value === solution.slice(0, -1) || value.slice(0, -1) === solution) {
-        setIsCorrect(false);
-      }
-    }
+    setIsCorrect(value === solution);
   }, [setIsCorrect, solution, socket]);
-  if(defaultValue === solution){
-    setIsCorrect(true);
-  }
-  else{
-    setIsCorrect(false);
-  }
+ 
   return (
     <div>
       <CodeMirror
