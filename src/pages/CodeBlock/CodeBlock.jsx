@@ -44,7 +44,7 @@ export const CodeBlock = () => {
     console.log("count from serverSocket", count);
   };
   useEffect(() => {
-    const newSocket = io("wss://moveoback.up.railway.app", {
+    const newSocket = io("https://moveoback.up.railway.app/codeblocks", {
       reconnectionDelay: 1000,
       reconnection: true,
       reconnectionAttemps: 10,
