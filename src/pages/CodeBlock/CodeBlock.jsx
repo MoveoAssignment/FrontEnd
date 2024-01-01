@@ -89,6 +89,7 @@ export const CodeBlock = () => {
                 readOnly={isMentor}
                 socket={socket}
                 defaultValue={message}
+                setMessage={setMessage}
               />
             )}
           </Box>
