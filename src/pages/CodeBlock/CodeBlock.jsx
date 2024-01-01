@@ -34,7 +34,7 @@ export const CodeBlock = () => {
     };
 
     fetchCodeBlock();
-  }, [id]);
+  }, []);
 
   const handleCount = (count) => {
     console.log(isMentor, count);
@@ -64,7 +64,6 @@ export const CodeBlock = () => {
     return () => newSocket.close();
   }, []);
 
-  console.log("rendering codeBlock");
   return (
     <>
       <div className={styles["container"]}>
