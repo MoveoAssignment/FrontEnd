@@ -58,7 +58,7 @@ export const CodeBlock = () => {
       handleCount(count);
     });
     newSocket.on("message", (msg) => {
-      if(message!=msg) setMessage(msg);
+      if(isMentor) setMessage(msg);
     });
     setSocket(newSocket);
     return () => newSocket.close();
